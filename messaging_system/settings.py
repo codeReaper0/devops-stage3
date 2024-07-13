@@ -34,7 +34,7 @@ EMAIL_USE_TLS = False  # Gmail uses SSL, not TLS
 EMAIL_USE_SSL = True  # Enable SSL encryption
 
 EMAIL_HOST_USER = 'boluwatifetella@gmail.com'
-EMAIL_HOST_PASSWORD = 'jnrlzdrtatplwmai'
+EMAIL_HOST_PASSWORD = ''
 
 # Application definition
 

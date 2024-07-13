@@ -22,7 +22,8 @@ def send_mail(request):
     if talktome:
         log_message("Message sent")
 
-    response = "Email sent" if email else ""
+    response = "Email queued for sending to '{}'".format(
+        email) if email else ""
     response += " and message logged" if talktome else ""
     return HttpResponse(response or "No actions performed.")
 
