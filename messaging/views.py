@@ -1,6 +1,7 @@
 from django.shortcuts import HttpResponse
 from django.core.mail import EmailMessage
 from messaging.tasks import log_message
+import os
 
 
 def send_mail(request):
@@ -24,3 +25,12 @@ def send_mail(request):
     response = "Email sent" if email else ""
     response += " and message logged" if talktome else ""
     return HttpResponse(response or "No actions performed.")
+
+
+def get_logs(request):
+    try:
+        with open('../devops-stage3/var/log/messaging_system.log', 'r') as f:
+            logs = f.read()
+        return HttpResponse(logs, content_type='text/plain; charset=utf-8')
+    except Exception as e:
+        return HttpResponse(f"Failed to retrieve logs: {str(e)}", status=500)
